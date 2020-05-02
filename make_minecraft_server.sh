@@ -55,5 +55,5 @@ echo "java -Xmx""$run_gb""G -Xms""$run_gb""G -jar spigot-""$minecraft_version"".
 chmod +x start_command.sh
 
 # set up git credentials for backups
-git config credential.helper store
-git push
+#git config credential.helper store
+#git push

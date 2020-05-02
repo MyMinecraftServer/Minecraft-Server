@@ -7,7 +7,7 @@
 # To detach screen (put back in background), hold Ctrl+a+d in the shell the screen is running.
 ### END OF SCRIPT DESCRIPTION ###
 
-use_backup=1
+use_backup=0
 
 # check that we have Minecraft folder and advise user to run make server command
 [ ! -d Minecraft ] && (echo "must run make_minecraft_server.sh first to make Minecraft folder" && exit 1)
