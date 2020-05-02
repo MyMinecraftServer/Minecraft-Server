@@ -14,9 +14,9 @@
 # version of Minecraft we want to build
 minecraft_version="1.15.2"
 # number of GB we want to ues to build jar file (not the same as GB to run server)
-build_gb=4
+build_gb=8
 # number of GB we want to ues to run the server
-run_gb=4
+run_gb=8
 ### END OF VARIABLES YOU CARE ABOUT ###
 
 # make sure we have prerequisites installed and install them if not:

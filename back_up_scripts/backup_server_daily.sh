@@ -1,3 +1,4 @@
+backup_path=/mnt/d/Desktop/Minecraft_backups
 sleep 5m
 ./stop_minecraft_server.sh
 
@@ -5,8 +6,8 @@ sleep 5m
 # git commit -am "daily backup"
 # git push
 
-new_minecraft_dir=Minecrafr_backup_`date +"%s"`
-mkdir new_minecraft_dir
+new_minecraft_dir="$backup_path"/Minecraft_backup_`date +"%s"`
+mkdir $new_minecraft_dir
 cp Minecraft/world/ $new_minecraft_dir/
 cp Minecraft/world_nether/ $new_minecraft_dir/
 cp Minecraft/world_the_end/ $new_minecraft_dir/
