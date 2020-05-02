@@ -19,6 +19,7 @@ cd Minecraft
 # show or user what command is about to be run in new screen
 tail -n 1 start_command.sh
 # run our minecraft server in a screen called minecraft and add gamerules to server
+echo "minecraft server started in minecraft screen"
 screen -S minecraft -d -m ./start_command.sh
 screen -p 0 -S minecraft -X eval 'stuff "gamerule mobGriefing false"\015'
 # wait to see if any errors occur
