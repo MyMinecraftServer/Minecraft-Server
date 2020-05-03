@@ -1,16 +1,24 @@
-backup_path=/media/user/disk/Minecraft_backups
-sleep 7d
+#! /bin/bash
+# *** Must run this script from parent folder (Minecraft-server)
+# if run in back_up_scripts, start and stop server will not work ***
+# full path to where we want to save our backups
+# *** Must  create this folder yourself ***
+backup_path=/media/external/Minecraft_backups
+# time length between backups
+days_between_backups=7
+
+echo "backing up every ""$days_between_backups"" days"
+# wait time length
+sleep "$days_between_backups"d
+
+# stop server to prevent data from being corrupted
 ./stop_minecraft_server.sh
-sleep 1m
-
-# git add Minecraft/world/* Minecraft/world_nether/* Minecraft/world_the_end/* Minecraft/*.yml  Minecraft/*.json
-# git commit -am "daily backup"
-# git push
-
+# make a backup folder based off of current time in given folder
 new_minecraft_dir="$backup_path"/Minecraft_backup_`date +"%s"`
 mkdir $new_minecraft_dir
+# copy all world files to backup folder
 cp -r Minecraft/world/ $new_minecraft_dir/
 cp -r Minecraft/world_nether/ $new_minecraft_dir/
 cp -r Minecraft/world_the_end/ $new_minecraft_dir/
-
+# restart server
 ./start_minecraft_server.sh

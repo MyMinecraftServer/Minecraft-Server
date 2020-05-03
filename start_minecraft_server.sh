@@ -7,7 +7,10 @@
 # To detach screen (put back in background), hold Ctrl+a+d in the shell the screen is running.
 ### END OF SCRIPT DESCRIPTION ###
 
-use_backup=0
+# flag for determining wether to backup server periodically automatically
+# world files must be located in Minecraft/world Minecraft/world_nether and Minecraft/world_the_end
+# all of which must be in Minecraft-server folder that contains this script
+use_backup=1
 
 # check that we have Minecraft folder and advise user to run make server command
 [ ! -d Minecraft ] && (echo "must run make_minecraft_server.sh first to make Minecraft folder" && exit 1)
@@ -33,6 +36,7 @@ if [ $use_backup -eq 1 ]
 then
 	cd ..
 	echo "running back-up in minecraftbackup screen"
-	screen -S minecraftbackup -m -d
-	screen -p 0 -S minecraftbackup -X ./backup_server_daily.sh
+	#screen -S minecraftbackup -m -d
+	#screen -p 0 -S minecraftbackup -X ./back_up_scripts/backup_server_daily.sh
+	./back_up_scripts/backup_server_daily.sh
 fi
