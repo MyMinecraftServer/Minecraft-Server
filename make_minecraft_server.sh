@@ -52,7 +52,7 @@ exit 1)
 # [ -f start_command.sh ] && exit 1
 
 # make a new start command every time
-[ -f start_command.sh ] || rm start_command.sh
+[ -f start_command.sh ] && rm start_command.sh
 touch start_command.sh
 echo "#! /bin/bash" >> start_command.sh
 echo "java -Xmx""$run_gb""G -Xms""$run_gb""G -jar spigot-""$minecraft_version"".jar nogui" >> start_command.sh
