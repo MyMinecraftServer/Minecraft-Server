@@ -12,7 +12,7 @@
 
 ### VARIABLES YOU CARE ABOUT ###
 # version of Minecraft we want to build
-minecraft_version="1.15.2"
+minecraft_version="1.16.4"
 # number of GB we want to ues to build jar file (not the same as GB to run server)
 build_gb=4
 # number of GB we want to ues to run the server
@@ -48,12 +48,12 @@ echo "check that spigot made a jar file (not BuildTools.jar) and rename it spigo
 exit 1)
 
 # make file to run server
-[ -f start_command.sh ] && exit 1
+# this uses old start command, but updating requires a new one
+# [ -f start_command.sh ] && exit 1
+
+# make a new start command every time
+[ -f start_command.sh ] || rm start_command.sh
 touch start_command.sh
 echo "#! /bin/bash" >> start_command.sh
 echo "java -Xmx""$run_gb""G -Xms""$run_gb""G -jar spigot-""$minecraft_version"".jar nogui" >> start_command.sh
 chmod +x start_command.sh
-
-# set up git credentials for backups
-#git config credential.helper store
-#git push
