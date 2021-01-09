@@ -36,7 +36,5 @@ if [ $use_backup -eq 1 ]
 then
 	cd ..
 	echo "running back-up in minecraftbackup screen"
-	screen -S minecraftbackup -m ./back_up_scripts/backup_server_daily.sh
-	#screen -p 0 -S minecraftbackup -X ./back_up_scripts/backup_server_daily.sh
-	#./back_up_scripts/backup_server_daily.sh
+	screen -S "minecraftbackup `date +%s`" -d -m ./back_up_server.sh
 fi
